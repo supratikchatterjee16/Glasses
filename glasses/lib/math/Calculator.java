@@ -1,6 +1,6 @@
 package glasses.lib.math;
 
-class Calculator{
+public class Calculator{
     private static int valCount =0;
     private static int[] convert(int arr[][]){
         int temp[]=new int[arr.length*arr[0].length];
