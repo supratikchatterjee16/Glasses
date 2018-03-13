@@ -3,7 +3,7 @@ package glasses.ext;
 import glasses.ext.lib.*;
 import java.io.File;
 
-class FrameBuilder{
+public class FrameBuilder{
     public static void run(String str){
         File f = new File("result");
         if(!f.exists())f.mkdir();
@@ -11,6 +11,6 @@ class FrameBuilder{
     }
     
     public static void main(String args[]){
-        run("syncedfrequencyshot.mp4");
+        run(args[0]+".mp4");
     }
 }

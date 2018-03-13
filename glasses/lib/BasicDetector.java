@@ -38,10 +38,15 @@ class BasicDetector{
     }
     return temp;
   }
+  protected static BufferedImage evaluate(BufferedImage b1, BufferedImage b2){
+    return linearChanged(changed(b1,b2));
+  }
   public static void main(String[] args){
-    ImageObject obj1 = new ImageObject("result/frame1.png");
-    ImageObject obj2=new ImageObject("result/frame1.png","result/frame2.png");
+    ImageObject obj1 = new ImageObject("result/frame"+args[0]+".png");
+    ImageObject obj2=new ImageObject("result/frame"+args[1]+".png");
     obj1 = new ImageObject(linearChanged(obj1.fetch()));
+    obj2 = new ImageObject(linearChanged(obj2.fetch()));
+    obj1 = new ImageObject(obj1,obj2);
     obj1.store("temp1.png");
     obj2.store("temp2.png");
   }

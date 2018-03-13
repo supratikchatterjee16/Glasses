@@ -1,7 +1,9 @@
 package glasses.lib.math;
 
 public class Calculator{
+    
     private static int valCount =0;
+    
     private static int[] convert(int arr[][]){
         int temp[]=new int[arr.length*arr[0].length];
         for(int i =0;i<arr.length;i++){
@@ -11,6 +13,7 @@ public class Calculator{
         }
         return temp;
     }
+    
     public static double mean(int arr[],boolean flag){
         double temp=0;
         int ctr=0;
