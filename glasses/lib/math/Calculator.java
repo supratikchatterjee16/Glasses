@@ -7,8 +7,8 @@ public class Calculator{
     private static int[] convert(int arr[][]){
         int temp[]=new int[arr.length*arr[0].length];
         for(int i =0;i<arr.length;i++){
-            for(int j =0;j<arr.length;j++){
-                temp[i*10+j]=arr[i][j];
+            for(int j =0;j<arr[0].length;j++){
+                temp[i*arr.length+j]=arr[i][j];
             }
         }
         return temp;
@@ -17,6 +17,7 @@ public class Calculator{
     public static double mean(int arr[],boolean flag){
         double temp=0;
         int ctr=0;
+        //flag is for including the 0 values
         for(int i =0;i<arr.length;i++){
             temp += arr[i];
             if(arr[i]!=0&&flag)ctr++;

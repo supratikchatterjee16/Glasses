@@ -20,6 +20,10 @@ public class Grayscale extends ImageObject{
             default:;
         }
     }
+    public Grayscale(String str){
+       image = ImageObject.fetch(new File(str));
+        super.image=luminosity(image); 
+    }
     private static BufferedImage average(BufferedImage img){
         int height=img.getHeight(),width = img.getWidth();
         int red=0,green=0,blue=0,temp=0;
@@ -75,9 +79,11 @@ public class Grayscale extends ImageObject{
     public static void main(String[] args){
         try{
             Grayscale gimg1 = new Grayscale(ImageIO.read(new File("result/frame1.png")),Integer.parseInt(args[0])),
-                            gimg2= new Grayscale(ImageIO.read(new File("result/frame2.png")),Integer.parseInt(args[0]));
-            ImageObject io = new ImageObject(gimg1,gimg2);
-            ImageIO.write(io.fetch(),"png",new File("gray.png"));
+                           gimg2=new Grayscale(ImageIO.read(new File("result/frame2.png")),Integer.parseInt(args[0]));
+            ImageObject io =new ImageObject(gimg1.fetch(),gimg2.fetch());
+            ImageIO.write(gimg1.fetch(),"png",new File("grayFrame1.png"));
+            ImageIO.write(gimg2.fetch(),"png",new File("grayFrame2.png"));
+            ImageIO.write(io.fetch(),"png",new File("test.png"));
         }catch(Exception e){e.printStackTrace();}
     }
 }
